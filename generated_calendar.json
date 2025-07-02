@@ -1,0 +1,372 @@
+[
+  {
+    "type": "Deadline",
+    "name": "Deliverables under Sections 2.7.3(b)–(d)",
+    "deadline": "2023-07-07",
+    "relative_to_notice": "Within five (5) Business Days after Notice to Proceed (30 June 2023)",
+    "description": "Provide the deliverables referred to in Sections 2.7.3(b) through 2.7.3(d)",
+    "clause_reference": "Section 2.7.3(b)–(d)",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Delivery of Performance Bond and Other Section 2.7.3(b)–(d) Deliverables",
+    "deadline": "2023-07-07",
+    "relative_to_notice": "5 Business Days after Notice to Proceed",
+    "description": "Contractor must furnish the deliverables referred to in Sections 2.7.3(b) through 2.7.3(d) (including the required bonds) within five (5) Business Days of the Owner’s delivery of the Notice to Proceed.",
+    "clause_reference": "Section 2.7.3(b)–(d) (see Chunk 475)",
+    "source_citations": []
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n{\n  \"type\": \"Milestone\",\n  \"name\": \"Guaranteed Milestones Completion Date(s)\",\n  \"deadline\": \"\",\n  \"relative_to_notice\": \"\",\n  \"description\": \"Dates on which each Guaranteed Milestone (e.g., Site Mobilization Completion, Engineering Completion, Procurement Completion, Main Equipment Delivery, etc.) shall be achieved\",\n  \"clause_reference\": \"Clause 122\"\n}\n```",
+    "source_citations": []
+  },
+  {
+    "type": "Entitlement",
+    "name": "Change Order Due to Owner-Caused Delay",
+    "deadline": "Upon expiration of the Owner-Caused Delay Notification Period",
+    "relative_to_notice": "10 Business Days after the occurrence of an Owner-Caused Delay event (the Owner-Caused Delay Notification Period under Section 8.2)",
+    "description": "If an Owner-Caused Delay causes delay in performance or increases Contractor’s direct costs, the Owner must issue a Change Order extending the Guaranteed Milestone dates and/or increasing the Contract Price to the extent required.",
+    "clause_reference": "Section 9.5.1(b) in conjunction with Section 8.2",
+    "source_citations": []
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n{\n  \"type\": \"Milestone\",\n  \"name\": \"Commencement of Delay Liquidated Damages\",\n  \"deadline\": \"Upon expiry of the Scheduled Completion Date (as defined in the Agreement)\",\n  \"relative_to_notice\": \"\",\n  \"description\": \"Delay Liquidated Damages begin accruing immediately after the Scheduled Completion Date is not met by the Contractor\",\n  \"clause_reference\": \"Section 6.18\"\n}\n```",
+    "source_citations": []
+  },
+  {
+    "type": "Entitlement",
+    "name": "Payment of Performance Liquidated Damages",
+    "deadline": "On each Performance Offset Payment date set forth in Section 6.20 (Performance Offset Payment Year 1, Year 2 and Final Performance Offset Payment), payable within 10 days after Owner’s request",
+    "relative_to_notice": "",
+    "description": "Owner is entitled to Performance Liquidated Damages on the dates specified in Section 6.20, and Contractor must pay any such amounts within 10 days of Owner’s request without set-off",
+    "clause_reference": "Sections 6.20 and 6.21",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Performance Bond Renewal",
+    "deadline": "2024-06-30",
+    "relative_to_notice": "1 year after Notice of Proceedings",
+    "description": "Contractor to renew the standby letter of credit provided as Performance Security under the Agreement",
+    "clause_reference": "Section 2.12.2 (Exhibit S-2)",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Achieve Substantial Completion and Meet Performance Guarantee",
+    "deadline": "Guaranteed Project Substantial Completion Date",
+    "relative_to_notice": "",
+    "description": "Contractor must cause Project Substantial Completion by the Guaranteed Project Substantial Completion Date and satisfy the Performance Guarantee to avoid Performance Liquidated Damages.",
+    "clause_reference": "Section 6.20",
+    "source_citations": [
+      {
+        "chunk_id": 417,
+        "text_snippet": "\"Performance Liquidated Damages shall accrue on the dates set forth in Section 6.20.\", \"Contractor shall pay any Liquidated Damages owed within ten (10) Days after receipt of the Owner's request. Contractor shall pay such Liquidated Damages without deduction, set-off, reduction or counterclaim.\",",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      },
+      {
+        "chunk_id": 472,
+        "text_snippet": "\"Contractor reaches the limitations of Delay Liquidated Damages set forth in Section 6.19 and/or the limitations of the Performance Liquidated Damages set forth in Section 6.20;\", \"the dissolution of Contractor and the failure of Contractor's successor to demonstrate, within ten (10) days of the dis",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n{\n  \"type\": \"Deadline\",\n  \"name\": \"Defects Notification Period Expiration\",\n  \"deadline\": \"2024-06-30\",\n  \"relative_to_notice\": \"12 months after Notice of Proceedings\",\n  \"description\": \"End of the period during which the Contractor must notify and correct defects in the Work\",\n  \"clause_reference\": \"Clause 10.2\"\n}\n```",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Submission of Sections 2.7.3(b)–(d) Deliverables",
+    "deadline": "2023-07-07",
+    "relative_to_notice": "Five Business Days after Notice to Proceed (30 June 2023)",
+    "description": "Contractor must provide the deliverables referred to in Sections 2.7.3(b) through 2.7.3(d)",
+    "clause_reference": "Section 2.7.3(b)–(d)",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Owner review of Design Documents",
+    "deadline": "10 Business Days after receipt of the relevant Design Documents",
+    "relative_to_notice": "Receipt of relevant Design Documents",
+    "description": "Owner must review and submit comments on each Design Document within ten Business Days of receipt; if Owner fails to respond within this period, the Design Document is deemed accepted and Contractor may proceed with the Work",
+    "clause_reference": "Section 2.4.2(a)",
+    "source_citations": [
+      {
+        "chunk_id": 220,
+        "text_snippet": "\"Delivery and Review. No later than twenty (20) days after the Effective Date, Contractor shall deliver to Owner a submission schedule of the Design Documents set forth in Exhibit A-21 (the \\\"Design Document Submission Schedule\\\") in accordance with the Construction Schedule and the Guaranteed Miles",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "other",
+    "name": "Notification of Feedstock Delivery Dates",
+    "deadline": "",
+    "relative_to_notice": "",
+    "description": "No provision in the provided contract excerpts requires the Contractor to inform the Owner of Feedstock delivery dates.",
+    "clause_reference": "",
+    "source_citations": []
+  },
+  {
+    "type": "other",
+    "name": "Delivery of Acceptable Feedstock",
+    "deadline": "",
+    "relative_to_notice": "",
+    "description": "No requirements or timeline for delivery of Acceptable Feedstock to the Plant by the Owner are found in the provided contract excerpts",
+    "clause_reference": "N/A",
+    "source_citations": []
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n[\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Semi-final Job Books Delivery\",\n    \"deadline\": \"Upon Project Substantial Completion\",\n    \"relative_to_notice\": \"At Project Substantial Completion (Provisional Acceptance)\",\n    \"description\": \"Deliver one electronic copy of the semi-final draft of the Job Books showing pending works and sufficient information to permit operator training and operation, repair and modification of the Work\",\n    \"clause_reference\": \"Chunk 231\"\n  },\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Final Job Books Delivery\",\n    \"deadline\": \"The earlier of Final Completion or 30 days after Project Substantial Completion\",\n    \"relative_to_notice\": \"Upon Final Completion (Final Acceptance) or 30 days after Project Substantial Completion\",\n    \"description\": \"Provide final and complete Job Books in the number of copies and format defined under the Owner’s Requirements, including electronic copies of any CAD-produced information\",\n    \"clause_reference\": \"Chunk 231\"\n  }\n]\n```",
+    "source_citations": []
+  },
+  {
+    "type": "other",
+    "name": "Training Program for Owner’s Personnel",
+    "deadline": null,
+    "relative_to_notice": null,
+    "description": "Commencement and completion dates for the training program, including minimum lead time before each Partial Provisional Acceptance, are not specified in the provided contract excerpts.",
+    "clause_reference": null,
+    "source_citations": []
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n{\n  \"type\": \"Other\",\n  \"name\": \"Emergency Notification\",\n  \"deadline\": \"\",\n  \"relative_to_notice\": \"\",\n  \"description\": \"No specific timing or notice requirements for emergencies found in the provided contract excerpts.\",\n  \"clause_reference\": \"\"\n}\n```",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Prior Notice to Issue Notice to Proceed",
+    "deadline": "Notice to Proceed Date minus 5 Business Days",
+    "relative_to_notice": "5 Business Days before Notice to Proceed",
+    "description": "Owner to provide Contractor with five Business Days' prior notice of its intention to issue the Notice to Proceed",
+    "clause_reference": "Section 2.7.2",
+    "source_citations": [
+      {
+        "chunk_id": 153,
+        "text_snippet": "\"\\\"Notice to Proceed\\\" means a written notice issued by Owner to Contractor pursuant to Section 2.7.2, and substantially in the form as shown in Exhibit C-5-2, directing Contractor to commence the Work in accordance with the terms of this Agreement.\", \"\\\"Notice to Proceed Date\\\" means the date of is",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Milestone",
+    "name": "Long Stop Date for Notice to Proceed",
+    "deadline": "Long Stop Date",
+    "relative_to_notice": "",
+    "description": "Date by which Notice to Proceed must be issued; Owner's right to extend the intended issuance date expires on this date and NTP cannot be issued thereafter",
+    "clause_reference": "Section 4.1.2(ii)",
+    "source_citations": [
+      {
+        "chunk_id": 249,
+        "text_snippet": "\"Contractor will not perform any Work on the Project Site until Owner issues to Contractor a Notice to Proceed in substantially the form of Exhibit C-5-2.\", \"Owner shall provide Contractor with five (5) Business Days' prior notice of its intention to issue the Notice to Proceed. The Parties agree th",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Entitlement",
+    "name": "Termination prior to Notice to Proceed",
+    "deadline": "At least 10 Business Days' notice prior to termination effective date",
+    "relative_to_notice": "",
+    "description": "Owner may terminate the Agreement prior to issuance of the Notice to Proceed by giving at least ten Business Days' notice if financing is not obtained or shareholders cease development",
+    "clause_reference": "Section 12.4",
+    "source_citations": [
+      {
+        "chunk_id": 252,
+        "text_snippet": "\"delivery by Owner to Contractor of proof of the Option for Additional Modules from the Modules Suppliers in accordance with Exhibit C-5-3. \", \"In the event that Owner has failed to issue the Notice to Proceed on or before the Long Stop Date, the Owner shall be entitled to (i) terminate this Agreeme",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      },
+      {
+        "chunk_id": 485,
+        "text_snippet": "\"Prior to the issuance of the Notice to Proceed, Owner may for its convenience terminate this Agreement after giving notice to Contractor (a \\\"Termination prior to Notice to Proceed \\\") provided that, such termination right may be exercised by Owner only in the event of (a) failure to obtain financi",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Entitlement",
+    "name": "Owner's rights upon failure to issue Notice to Proceed by Long Stop Date",
+    "deadline": "Long Stop Date",
+    "relative_to_notice": "",
+    "description": "If Owner fails to issue the Notice to Proceed on or before the Long Stop Date, Owner may (i) terminate under Section 12.4 or (ii) adjust the Contract Price under Section 4.1.2, with automatic adjustment of the Construction Schedule by the number of days of postponement",
+    "clause_reference": "Sections 4.1.2 and 12.4",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Performance Security Delivery",
+    "deadline": "2023-06-30",
+    "relative_to_notice": "On or prior to Notice of Proceedings",
+    "description": "Contractor to deliver an irrevocable standby letter of credit equal to 20% of Net Contract Price as Performance Security",
+    "clause_reference": "Section 2.12.2",
+    "source_citations": [
+      {
+        "chunk_id": 168,
+        "text_snippet": "\"\\\"Performance Security\\\" means the standby letter of credit to be provided by Contractor pursuant to Section 2.12.2 in the form set out in Exhibit S\\u001e2.\", \"\\\"Permit\\\" means all exemptions, certificates, permits, approvals, authorizations, licenses, consents, clearances, rulings, decisions, auth",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Deadline",
+    "name": "Performance Security Renewal",
+    "deadline": "30 days prior to each expiration of the Performance Security",
+    "relative_to_notice": null,
+    "description": "Contractor to renew the Performance Security for successive 90-day periods until Final Completion",
+    "clause_reference": "Section 2.12.2",
+    "source_citations": [
+      {
+        "chunk_id": 168,
+        "text_snippet": "\"\\\"Performance Security\\\" means the standby letter of credit to be provided by Contractor pursuant to Section 2.12.2 in the form set out in Exhibit S\\u001e2.\", \"\\\"Permit\\\" means all exemptions, certificates, permits, approvals, authorizations, licenses, consents, clearances, rulings, decisions, auth",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Milestone",
+    "name": "Warranty Period Security Delivery",
+    "deadline": "On Final Completion",
+    "relative_to_notice": null,
+    "description": "Contractor to deliver an irrevocable standby letter of credit equal to 5% of Contract Price as Warranty Period Security",
+    "clause_reference": "Section 2.12.3",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Warranty Period Security Renewal",
+    "deadline": "30 days prior to expiration of the Warranty Period Security",
+    "relative_to_notice": null,
+    "description": "Contractor to renew the Warranty Period Security to remain in effect until the end of the Warranty Period",
+    "clause_reference": "Section 2.12.3",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Provide Parent Company Guarantee",
+    "deadline": "2023-06-30",
+    "relative_to_notice": "On or prior to the date of issuance of the Notice to Proceed",
+    "description": "Guarantor shall deliver and maintain in full force and effect a parent company guarantee (Exhibit S-1) naming Owner and any designated Financing Party as beneficiaries, as a condition precedent to payment of the Advance Payment.",
+    "clause_reference": "Section 2.12.1",
+    "source_citations": [
+      {
+        "chunk_id": 163,
+        "text_snippet": "\"\\\"Owner's Requirements\\\" means the services and work to be provided, or caused to be provided, by or through Contractor under Agreement as well as the applicable specifications and other requirements, as more particularly described in Exhibit A.\", \"\\\"Parent Company Guarantee\\\" means the parent comp",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      },
+      {
+        "chunk_id": 255,
+        "text_snippet": "\"delivery by Contractor to Owner of the Parent Company Guarantee in accordance with Section 2.12.1.\", \"Access to Project Site. Immediately after the issuance of the Notice to Proceed, Owner shall provide Contractor, without any further action by any Party, with adequate and continuous access to the ",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Deadline",
+    "name": "Delivery of Letter of Proof of Financing",
+    "deadline": "On or prior to the Notice to Proceed Date",
+    "relative_to_notice": "Notice to Proceed Date",
+    "description": "Owner must deliver to Contractor the Letter of Proof of Financing enabling payment of the Contract Price; failure to deliver by the Notice to Proceed Date means the conditions precedent to NTP are not met and delays the effectiveness of Contractor’s guarantees and other obligations.",
+    "clause_reference": "Proof of Financing Conditions (Chunk 316)",
+    "source_citations": [
+      {
+        "chunk_id": 51,
+        "text_snippet": "\"Form of Letter of Proof of Financing\", \"Exhibit I \",",
+        "match_fields": [
+          "name"
+        ],
+        "score": 1
+      }
+    ]
+  },
+  {
+    "type": "Milestone",
+    "name": "Site Preparation Completion and Owner Confirmation",
+    "deadline": "2023-06-30",
+    "relative_to_notice": "Date of Notice of Proceedings (30 June 2023)",
+    "description": "Owner must complete all site‐preparation conditions under Section 6.14 (including site access, utilities, installation of fully operational temporary facilities – internet, electricity, furniture, sanitary facilities) and deliver written confirmation thereon. Any delay by the Owner in satisfying these conditions entitles the Contractor to a corresponding extension of the Construction Schedule.",
+    "clause_reference": "Section 6.14",
+    "source_citations": [
+      {
+        "chunk_id": 320,
+        "text_snippet": "\"installation of fully operational Temporary Facilities for Contractor and Owner, including internet connection, electricity, furniture, and sanitary facilities; and\", \"Owner has confirmed that the conditions set forth hereinabove have occurred, pursuant to Section 6.14.\",",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n[\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Mechanical Completion\",\n    \"deadline\": null,\n    \"relative_to_notice\": null,\n    \"description\": null,\n    \"clause_reference\": null\n  },\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Partial Provisional Acceptance\",\n    \"deadline\": null,\n    \"relative_to_notice\": null,\n    \"description\": null,\n    \"clause_reference\": null\n  },\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Global Provisional Acceptance\",\n    \"deadline\": null,\n    \"relative_to_notice\": null,\n    \"description\": null,\n    \"clause_reference\": null\n  },\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Final Acceptance\",\n    \"deadline\": null,\n    \"relative_to_notice\": null,\n    \"description\": null,\n    \"clause_reference\": null\n  },\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"First Injection Date\",\n    \"deadline\": null,\n    \"relative_to_notice\": null,\n    \"description\": null,\n    \"clause_reference\": null\n  }\n]\n```",
+    "source_citations": []
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n[\n  {\n    \"type\": \"Entitlement\",\n    \"name\": \"Delay Liquidated Damages Accrual\",\n    \"deadline\": \"Commencing the day after the Scheduled Substantial Completion Date\",\n    \"relative_to_notice\": \"\",\n    \"description\": \"Owner entitled to daily Delay Liquidated Damages for each day Contractor fails to achieve Substantial Completion\",\n    \"clause_reference\": \"Section 6.18\"\n  },\n  {\n    \"type\": \"Entitlement\",\n    \"name\": \"Performance Liquidated Damages Accrual\",\n    \"deadline\": \"Commencing the day after the Performance Test Deadline\",\n    \"relative_to_notice\": \"\",\n    \"description\": \"Owner entitled to daily Performance Liquidated Damages for each day Contractor fails to meet the Performance Tests\",\n    \"clause_reference\": \"Section 6.19\"\n  },\n  {\n    \"type\": \"Milestone\",\n    \"name\": \"Weekly Progress Report\",\n    \"deadline\": \"Every 7 days\",\n    \"relative_to_notice\": \"Starting from Notice of Proceedings (2023-06-30)\",\n    \"description\": \"Contractor to submit weekly progress reports detailing work performed, schedule updates, and any delays\",\n    \"clause_reference\": \"Not specified in provided context\"\n  }\n]\n```",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Recovery Plan Submission",
+    "deadline": "10 days after written notice of failure",
+    "relative_to_notice": "10 days after Owner’s written notice under Section 2.7.6(a)",
+    "description": "Contractor must submit a written recovery plan as required by Section 2.7.6(a)",
+    "clause_reference": "Section 2.7.6(a)",
+    "source_citations": [
+      {
+        "chunk_id": 471,
+        "text_snippet": "\"Contractor fails to: (i) provide a written recovery plan as required in Section 2.7.6(a) and such failure has not been cured within ten (10) days of written notice by Owner of such failure; or (ii) implement the recovery plan in a diligent and timely manner;\", \"the Abandonment of the Project;\",",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "error": "Double decoding failed",
+    "raw_response": "```json\n{\n  \"type\": \"Deadline\",\n  \"name\": \"Appointment of Senior Management Representatives\",\n  \"deadline\": \"2023-07-03\",\n  \"relative_to_notice\": \"3 days after Notice of Proceedings\",\n  \"description\": \"Each Party must appoint a senior officer as its representative to negotiate and attempt in good faith to resolve the Dispute\",\n  \"clause_reference\": \"Referral to Senior Management\"\n}\n```",
+    "source_citations": []
+  }
+]

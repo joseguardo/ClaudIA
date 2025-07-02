@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractual Calendar Dashboard</title>
+    <meta name="generator" content="Contractual Calendar Generator">
+    <meta name="generated" content="2025-07-02 09:54:19">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .generation-info {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .filters {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .filter-select {
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .items-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .item-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .item-card.deadline {
+            border-left-color: #e74c3c;
+        }
+        
+        .item-card.milestone {
+            border-left-color: #f39c12;
+        }
+        
+        .item-card.entitlement {
+            border-left-color: #27ae60;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .item-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .item-type {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .item-type.deadline {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        .item-type.milestone {
+            background: rgba(243, 156, 18, 0.1);
+            color: #f39c12;
+        }
+        
+        .item-type.entitlement {
+            background: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+        }
+        
+        .item-type.other {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+        }
+        
+        .item-details {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #495057;
+            min-width: 100px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-value {
+            color: #6c757d;
+            flex: 1;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .deadline-date {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .clause-reference {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .export-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .export-btn {
+            padding: 8px 16px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        
+        .export-btn:hover {
+            background: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                min-width: auto;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .item-type {
+                align-self: flex-start;
+            }
+            
+            .export-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contractual Calendar Dashboard</h1>
+            <p>Project Timeline Management & Compliance Tracking</p>
+            <div class="generation-info">Generated on 2025-07-02 09:54:19</div>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <span class="filter-label">Type:</span>
+                <select class="filter-select" id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="Deadline">Deadlines</option>
+                    <option value="Milestone">Milestones</option>
+                    <option value="Entitlement">Entitlements</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <input type="text" class="search-box" id="searchBox" placeholder="Search by name, description, or clause reference...">
+        </div>
+        
+        <div class="content">
+            <div class="export-buttons">
+                <button class="export-btn" onclick="exportToJSON()">Export to JSON</button>
+                <button class="export-btn" onclick="exportToCSV()">Export to CSV</button>
+                <button class="export-btn" onclick="printDashboard()">Print Dashboard</button>
+            </div>
+            
+            <div class="stats" id="stats">
+                <!-- Stats will be populated by JavaScript -->
+            </div>
+            
+            <div class="items-grid" id="itemsGrid">
+                <!-- Items will be populated by JavaScript -->
+            </div>
+            
+            <div class="no-results hidden" id="noResults">
+                <h3>No items found</h3>
+                <p>Try adjusting your filters or search terms</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const contractualData = [
+  {
+    "type": "Deadline",
+    "name": "Deliverables under Sections 2.7.3(b)–(d)",
+    "deadline": "2023-07-07",
+    "relative_to_notice": "Within five (5) Business Days after Notice to Proceed (30 June 2023)",
+    "description": "Provide the deliverables referred to in Sections 2.7.3(b) through 2.7.3(d)",
+    "clause_reference": "Section 2.7.3(b)–(d)",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Delivery of Performance Bond and Other Section 2.7.3(b)–(d) Deliverables",
+    "deadline": "2023-07-07",
+    "relative_to_notice": "5 Business Days after Notice to Proceed",
+    "description": "Contractor must furnish the deliverables referred to in Sections 2.7.3(b) through 2.7.3(d) (including the required bonds) within five (5) Business Days of the Owner’s delivery of the Notice to Proceed.",
+    "clause_reference": "Section 2.7.3(b)–(d) (see Chunk 475)",
+    "source_citations": []
+  },
+  {
+    "type": "Entitlement",
+    "name": "Change Order Due to Owner-Caused Delay",
+    "deadline": "Upon expiration of the Owner-Caused Delay Notification Period",
+    "relative_to_notice": "10 Business Days after the occurrence of an Owner-Caused Delay event (the Owner-Caused Delay Notification Period under Section 8.2)",
+    "description": "If an Owner-Caused Delay causes delay in performance or increases Contractor’s direct costs, the Owner must issue a Change Order extending the Guaranteed Milestone dates and/or increasing the Contract Price to the extent required.",
+    "clause_reference": "Section 9.5.1(b) in conjunction with Section 8.2",
+    "source_citations": []
+  },
+  {
+    "type": "Entitlement",
+    "name": "Payment of Performance Liquidated Damages",
+    "deadline": "On each Performance Offset Payment date set forth in Section 6.20 (Performance Offset Payment Year 1, Year 2 and Final Performance Offset Payment), payable within 10 days after Owner’s request",
+    "relative_to_notice": "",
+    "description": "Owner is entitled to Performance Liquidated Damages on the dates specified in Section 6.20, and Contractor must pay any such amounts within 10 days of Owner’s request without set-off",
+    "clause_reference": "Sections 6.20 and 6.21",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Performance Bond Renewal",
+    "deadline": "2024-06-30",
+    "relative_to_notice": "1 year after Notice of Proceedings",
+    "description": "Contractor to renew the standby letter of credit provided as Performance Security under the Agreement",
+    "clause_reference": "Section 2.12.2 (Exhibit S-2)",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Achieve Substantial Completion and Meet Performance Guarantee",
+    "deadline": "Guaranteed Project Substantial Completion Date",
+    "relative_to_notice": "",
+    "description": "Contractor must cause Project Substantial Completion by the Guaranteed Project Substantial Completion Date and satisfy the Performance Guarantee to avoid Performance Liquidated Damages.",
+    "clause_reference": "Section 6.20",
+    "source_citations": [
+      {
+        "chunk_id": 417,
+        "text_snippet": "\"Performance Liquidated Damages shall accrue on the dates set forth in Section 6.20.\", \"Contractor shall pay any Liquidated Damages owed within ten (10) Days after receipt of the Owner's request. Contractor shall pay such Liquidated Damages without deduction, set-off, reduction or counterclaim.\",",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      },
+      {
+        "chunk_id": 472,
+        "text_snippet": "\"Contractor reaches the limitations of Delay Liquidated Damages set forth in Section 6.19 and/or the limitations of the Performance Liquidated Damages set forth in Section 6.20;\", \"the dissolution of Contractor and the failure of Contractor's successor to demonstrate, within ten (10) days of the dis",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Deadline",
+    "name": "Submission of Sections 2.7.3(b)–(d) Deliverables",
+    "deadline": "2023-07-07",
+    "relative_to_notice": "Five Business Days after Notice to Proceed (30 June 2023)",
+    "description": "Contractor must provide the deliverables referred to in Sections 2.7.3(b) through 2.7.3(d)",
+    "clause_reference": "Section 2.7.3(b)–(d)",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Owner review of Design Documents",
+    "deadline": "10 Business Days after receipt of the relevant Design Documents",
+    "relative_to_notice": "Receipt of relevant Design Documents",
+    "description": "Owner must review and submit comments on each Design Document within ten Business Days of receipt; if Owner fails to respond within this period, the Design Document is deemed accepted and Contractor may proceed with the Work",
+    "clause_reference": "Section 2.4.2(a)",
+    "source_citations": [
+      {
+        "chunk_id": 220,
+        "text_snippet": "\"Delivery and Review. No later than twenty (20) days after the Effective Date, Contractor shall deliver to Owner a submission schedule of the Design Documents set forth in Exhibit A-21 (the \\\"Design Document Submission Schedule\\\") in accordance with the Construction Schedule and the Guaranteed Miles",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "other",
+    "name": "Notification of Feedstock Delivery Dates",
+    "deadline": "",
+    "relative_to_notice": "",
+    "description": "No provision in the provided contract excerpts requires the Contractor to inform the Owner of Feedstock delivery dates.",
+    "clause_reference": "",
+    "source_citations": []
+  },
+  {
+    "type": "other",
+    "name": "Delivery of Acceptable Feedstock",
+    "deadline": "",
+    "relative_to_notice": "",
+    "description": "No requirements or timeline for delivery of Acceptable Feedstock to the Plant by the Owner are found in the provided contract excerpts",
+    "clause_reference": "N/A",
+    "source_citations": []
+  },
+  {
+    "type": "other",
+    "name": "Training Program for Owner’s Personnel",
+    "deadline": null,
+    "relative_to_notice": null,
+    "description": "Commencement and completion dates for the training program, including minimum lead time before each Partial Provisional Acceptance, are not specified in the provided contract excerpts.",
+    "clause_reference": null,
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Prior Notice to Issue Notice to Proceed",
+    "deadline": "Notice to Proceed Date minus 5 Business Days",
+    "relative_to_notice": "5 Business Days before Notice to Proceed",
+    "description": "Owner to provide Contractor with five Business Days' prior notice of its intention to issue the Notice to Proceed",
+    "clause_reference": "Section 2.7.2",
+    "source_citations": [
+      {
+        "chunk_id": 153,
+        "text_snippet": "\"\\\"Notice to Proceed\\\" means a written notice issued by Owner to Contractor pursuant to Section 2.7.2, and substantially in the form as shown in Exhibit C-5-2, directing Contractor to commence the Work in accordance with the terms of this Agreement.\", \"\\\"Notice to Proceed Date\\\" means the date of is",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Milestone",
+    "name": "Long Stop Date for Notice to Proceed",
+    "deadline": "Long Stop Date",
+    "relative_to_notice": "",
+    "description": "Date by which Notice to Proceed must be issued; Owner's right to extend the intended issuance date expires on this date and NTP cannot be issued thereafter",
+    "clause_reference": "Section 4.1.2(ii)",
+    "source_citations": [
+      {
+        "chunk_id": 249,
+        "text_snippet": "\"Contractor will not perform any Work on the Project Site until Owner issues to Contractor a Notice to Proceed in substantially the form of Exhibit C-5-2.\", \"Owner shall provide Contractor with five (5) Business Days' prior notice of its intention to issue the Notice to Proceed. The Parties agree th",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Entitlement",
+    "name": "Termination prior to Notice to Proceed",
+    "deadline": "At least 10 Business Days' notice prior to termination effective date",
+    "relative_to_notice": "",
+    "description": "Owner may terminate the Agreement prior to issuance of the Notice to Proceed by giving at least ten Business Days' notice if financing is not obtained or shareholders cease development",
+    "clause_reference": "Section 12.4",
+    "source_citations": [
+      {
+        "chunk_id": 252,
+        "text_snippet": "\"delivery by Owner to Contractor of proof of the Option for Additional Modules from the Modules Suppliers in accordance with Exhibit C-5-3. \", \"In the event that Owner has failed to issue the Notice to Proceed on or before the Long Stop Date, the Owner shall be entitled to (i) terminate this Agreeme",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      },
+      {
+        "chunk_id": 485,
+        "text_snippet": "\"Prior to the issuance of the Notice to Proceed, Owner may for its convenience terminate this Agreement after giving notice to Contractor (a \\\"Termination prior to Notice to Proceed \\\") provided that, such termination right may be exercised by Owner only in the event of (a) failure to obtain financi",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Entitlement",
+    "name": "Owner's rights upon failure to issue Notice to Proceed by Long Stop Date",
+    "deadline": "Long Stop Date",
+    "relative_to_notice": "",
+    "description": "If Owner fails to issue the Notice to Proceed on or before the Long Stop Date, Owner may (i) terminate under Section 12.4 or (ii) adjust the Contract Price under Section 4.1.2, with automatic adjustment of the Construction Schedule by the number of days of postponement",
+    "clause_reference": "Sections 4.1.2 and 12.4",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Performance Security Delivery",
+    "deadline": "2023-06-30",
+    "relative_to_notice": "On or prior to Notice of Proceedings",
+    "description": "Contractor to deliver an irrevocable standby letter of credit equal to 20% of Net Contract Price as Performance Security",
+    "clause_reference": "Section 2.12.2",
+    "source_citations": [
+      {
+        "chunk_id": 168,
+        "text_snippet": "\"\\\"Performance Security\\\" means the standby letter of credit to be provided by Contractor pursuant to Section 2.12.2 in the form set out in Exhibit S\\u001e2.\", \"\\\"Permit\\\" means all exemptions, certificates, permits, approvals, authorizations, licenses, consents, clearances, rulings, decisions, auth",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Deadline",
+    "name": "Performance Security Renewal",
+    "deadline": "30 days prior to each expiration of the Performance Security",
+    "relative_to_notice": null,
+    "description": "Contractor to renew the Performance Security for successive 90-day periods until Final Completion",
+    "clause_reference": "Section 2.12.2",
+    "source_citations": [
+      {
+        "chunk_id": 168,
+        "text_snippet": "\"\\\"Performance Security\\\" means the standby letter of credit to be provided by Contractor pursuant to Section 2.12.2 in the form set out in Exhibit S\\u001e2.\", \"\\\"Permit\\\" means all exemptions, certificates, permits, approvals, authorizations, licenses, consents, clearances, rulings, decisions, auth",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Milestone",
+    "name": "Warranty Period Security Delivery",
+    "deadline": "On Final Completion",
+    "relative_to_notice": null,
+    "description": "Contractor to deliver an irrevocable standby letter of credit equal to 5% of Contract Price as Warranty Period Security",
+    "clause_reference": "Section 2.12.3",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Warranty Period Security Renewal",
+    "deadline": "30 days prior to expiration of the Warranty Period Security",
+    "relative_to_notice": null,
+    "description": "Contractor to renew the Warranty Period Security to remain in effect until the end of the Warranty Period",
+    "clause_reference": "Section 2.12.3",
+    "source_citations": []
+  },
+  {
+    "type": "Deadline",
+    "name": "Provide Parent Company Guarantee",
+    "deadline": "2023-06-30",
+    "relative_to_notice": "On or prior to the date of issuance of the Notice to Proceed",
+    "description": "Guarantor shall deliver and maintain in full force and effect a parent company guarantee (Exhibit S-1) naming Owner and any designated Financing Party as beneficiaries, as a condition precedent to payment of the Advance Payment.",
+    "clause_reference": "Section 2.12.1",
+    "source_citations": [
+      {
+        "chunk_id": 163,
+        "text_snippet": "\"\\\"Owner's Requirements\\\" means the services and work to be provided, or caused to be provided, by or through Contractor under Agreement as well as the applicable specifications and other requirements, as more particularly described in Exhibit A.\", \"\\\"Parent Company Guarantee\\\" means the parent comp",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      },
+      {
+        "chunk_id": 255,
+        "text_snippet": "\"delivery by Contractor to Owner of the Parent Company Guarantee in accordance with Section 2.12.1.\", \"Access to Project Site. Immediately after the issuance of the Notice to Proceed, Owner shall provide Contractor, without any further action by any Party, with adequate and continuous access to the ",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Deadline",
+    "name": "Delivery of Letter of Proof of Financing",
+    "deadline": "On or prior to the Notice to Proceed Date",
+    "relative_to_notice": "Notice to Proceed Date",
+    "description": "Owner must deliver to Contractor the Letter of Proof of Financing enabling payment of the Contract Price; failure to deliver by the Notice to Proceed Date means the conditions precedent to NTP are not met and delays the effectiveness of Contractor’s guarantees and other obligations.",
+    "clause_reference": "Proof of Financing Conditions (Chunk 316)",
+    "source_citations": [
+      {
+        "chunk_id": 51,
+        "text_snippet": "\"Form of Letter of Proof of Financing\", \"Exhibit I \",",
+        "match_fields": [
+          "name"
+        ],
+        "score": 1
+      }
+    ]
+  },
+  {
+    "type": "Milestone",
+    "name": "Site Preparation Completion and Owner Confirmation",
+    "deadline": "2023-06-30",
+    "relative_to_notice": "Date of Notice of Proceedings (30 June 2023)",
+    "description": "Owner must complete all site‐preparation conditions under Section 6.14 (including site access, utilities, installation of fully operational temporary facilities – internet, electricity, furniture, sanitary facilities) and deliver written confirmation thereon. Any delay by the Owner in satisfying these conditions entitles the Contractor to a corresponding extension of the Construction Schedule.",
+    "clause_reference": "Section 6.14",
+    "source_citations": [
+      {
+        "chunk_id": 320,
+        "text_snippet": "\"installation of fully operational Temporary Facilities for Contractor and Owner, including internet connection, electricity, furniture, and sanitary facilities; and\", \"Owner has confirmed that the conditions set forth hereinabove have occurred, pursuant to Section 6.14.\",",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  },
+  {
+    "type": "Deadline",
+    "name": "Recovery Plan Submission",
+    "deadline": "10 days after written notice of failure",
+    "relative_to_notice": "10 days after Owner’s written notice under Section 2.7.6(a)",
+    "description": "Contractor must submit a written recovery plan as required by Section 2.7.6(a)",
+    "clause_reference": "Section 2.7.6(a)",
+    "source_citations": [
+      {
+        "chunk_id": 471,
+        "text_snippet": "\"Contractor fails to: (i) provide a written recovery plan as required in Section 2.7.6(a) and such failure has not been cured within ten (10) days of written notice by Owner of such failure; or (ii) implement the recovery plan in a diligent and timely manner;\", \"the Abandonment of the Project;\",",
+        "match_fields": [
+          "clause_reference"
+        ],
+        "score": 2
+      }
+    ]
+  }
+];
+        let filteredData = [...contractualData];
+
+        function updateStats() {
+            const stats = {
+                total: filteredData.length,
+                deadlines: filteredData.filter(item => item.type === 'Deadline').length,
+                milestones: filteredData.filter(item => item.type === 'Milestone').length,
+                entitlements: filteredData.filter(item => item.type === 'Entitlement').length
+            };
+
+            document.getElementById('stats').innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${stats.total}</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.deadlines}</div>
+                    <div class="stat-label">Deadlines</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.milestones}</div>
+                    <div class="stat-label">Milestones</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.entitlements}</div>
+                    <div class="stat-label">Entitlements</div>
+                </div>
+            `;
+        }
+
+        function renderItems() {
+            const grid = document.getElementById('itemsGrid');
+            const noResults = document.getElementById('noResults');
+
+            if (filteredData.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            noResults.classList.add('hidden');
+
+            grid.innerHTML = filteredData.map(item => `
+                <div class="item-card ${item.type.toLowerCase()}">
+                    <div class="item-header">
+                        <h3 class="item-title">${item.name || 'Unnamed Item'}</h3>
+                        <span class="item-type ${item.type.toLowerCase()}">${item.type}</span>
+                    </div>
+                    <div class="item-details">
+                        ${item.deadline ? `
+                            <div class="detail-row">
+                                <span class="detail-label">Deadline:</span>
+                                <span class="detail-value">
+                                    <span class="deadline-date">${item.deadline}</span>
+                                </span>
+                            </div>
+                        ` : ''}
+                        ${item.relative_to_notice ? `
+                            <div class="detail-row">
+                                <span class="detail-label">Relative to:</span>
+                                <span class="detail-value">${item.relative_to_notice}</span>
+                            </div>
+                        ` : ''}
+                        ${item.description ? `
+                            <div class="detail-row">
+                                <span class="detail-label">Description:</span>
+                                <span class="detail-value">${item.description}</span>
+                            </div>
+                        ` : ''}
+                        ${item.clause_reference ? `
+                            <div class="detail-row">
+                                <span class="detail-label">Reference:</span>
+                                <span class="detail-value">
+                                    <span class="clause-reference">${item.clause_reference}</span>
+                                </span>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterData() {
+            const typeFilter = document.getElementById('typeFilter').value;
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+
+            filteredData = contractualData.filter(item => {
+                const matchesType = !typeFilter || item.type === typeFilter;
+                const matchesSearch = !searchTerm || 
+                    (item.name && item.name.toLowerCase().includes(searchTerm)) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm)) ||
+                    (item.clause_reference && item.clause_reference.toLowerCase().includes(searchTerm)) ||
+                    (item.deadline && item.deadline.toLowerCase().includes(searchTerm));
+
+                return matchesType && matchesSearch;
+            });
+
+            updateStats();
+            renderItems();
+        }
+
+        function exportToJSON() {
+            const dataStr = JSON.stringify(filteredData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'contractual_calendar_export.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function exportToCSV() {
+            const headers = ['Type', 'Name', 'Deadline', 'Relative to Notice', 'Description', 'Clause Reference'];
+            const csvContent = [
+                headers.join(','),
+                ...filteredData.map(item => [
+                    `"${item.type || ''}"`,
+                    `"${(item.name || '').replace(/"/g, '""')}"`,
+                    `"${item.deadline || ''}"`,
+                    `"${item.relative_to_notice || ''}"`,
+                    `"${(item.description || '').replace(/"/g, '""')}"`,
+                    `"${item.clause_reference || ''}"`
+                ].join(','))
+            ].join('\n');
+            
+            const dataBlob = new Blob([csvContent], {type: 'text/csv'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'contractual_calendar_export.csv';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function printDashboard() {
+            window.print();
+        }
+
+        // Event listeners
+        document.getElementById('typeFilter').addEventListener('change', filterData);
+        document.getElementById('searchBox').addEventListener('input', filterData);
+
+        // Initial render
+        filterData();
+    </script>
+</body>
+</html>
